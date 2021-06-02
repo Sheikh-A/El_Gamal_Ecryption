@@ -34,3 +34,16 @@ def decrypt(sk,c):
     #Define M
     m = pow(funcC1, 1, p)
     return m
+
+testkey = keygen()
+print(testkey)
+
+pk = testkey[0]
+sk = testkey[1]
+
+message = 819191
+encry = encrypt(pk, message)
+print(encry)
+
+decry = decrypt(sk, encry)
+print(decry)
