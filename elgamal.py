@@ -1,7 +1,5 @@
 import random
 
-from elgamal_util import mod_inverse
-
 #import random from library
 from params import p
 from params import g
@@ -31,7 +29,7 @@ def decrypt(sk,c):
     #use array index
 
     #Define M
-    m = ((c2 % p) * pow(mod_inverse(c1, p), sk, p)) % p
+    m = ((c2 % p) * pow(c1, -sk, p), sk, p) % p
     return m
 
 pk, sk = keygen()
