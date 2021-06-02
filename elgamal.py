@@ -1,30 +1,37 @@
 import random
 
+from elgamal_util import mod_inverse
+
 #import random from library
 from params import p
 from params import g
 
 def keygen():
-    sk = random.randint(1,p)
+    get_random = random.randint(1,p)
+    #set SK
+    sk = get_random
+    #set pk
     pk = pow(g, sk, p)
     return pk,sk
 
 def encrypt(pk,m):
     #define r
     rand = random.randint(1,p)
+    r = rand
     # formula goes here
-    c1 = pow(g, rant, p)
+    c1 = pow(g, r, p)
     #formula goes here
-    c2 = (m * pow(pk, rand, p)) %  p
+    c2 = (pow(pk, r, p) * (m % p)) %  p
     return [c1,c2]
 
 def decrypt(sk,c):
-    [c1, c2] = c
+    c1 = c[0]
+    #use array index
+    c2 = c[1]
+    #use array index
 
-    #Define S
-    s = pow(c1, sk, p)
     #Define M
-    m = (c2 * pow(s, -1, p)) % p
+    m = ((c2 % p) * pow(mod_inverse(c1, p), sk, p)) % p
     return m
 
 pk, sk = keygen()
