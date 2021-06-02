@@ -41,4 +41,5 @@ def decrypt(sk,c):
     c2 = c[1]
     temp = pow(c1, sk, p)
     temp2 = c2 * pow(temp, -1, p)
-    return pow(temp2, 1, p)
+    m = pow(temp2, 1, p)
+    return m
