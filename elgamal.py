@@ -35,15 +35,17 @@ def decrypt(sk,c):
     m = pow(funcC1, 1, p)
     return m
 
-testkey = keygen()
-print(testkey)
+# testkey = keygen()
+# print(testkey)
+# sk = testkey[1]
+# pk = testkey[0]
+# print("sk", sk)
+# print("pk", pk)
 
-pk = testkey[0]
-sk = testkey[1]
+# message = 819191
+# print("message", message)
+# encry = encrypt(pk, message)
+# print(encry)
 
-message = 819191
-encry = encrypt(pk, message)
-print(encry)
-
-decry = decrypt(sk, encry)
-print(decry)
+# decry = decrypt(sk, encry)
+# print(decry)
