@@ -31,9 +31,3 @@ def decrypt(sk,c):
     #Define M
     m = ((c2 % p) * pow(c1, -sk, p), sk, p) % p
     return m
-
-pk, sk = keygen()
-print(pk)
-print(sk)
-m = 12239119
-print (decrypt(sk, encrypt(pk, m)))
