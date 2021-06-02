@@ -23,11 +23,15 @@ def encrypt(pk,m):
     return [c1,c2]
 
 def decrypt(sk,c):
-    c1 = c[0]
+    c0 = c[0]
     #use array index
-    c2 = c[1]
+    c1 = c[1]
     #use array index
 
+    funcC0 = pow(c0, sk, p)
+
+    #Modular Inverse
+    funcC1 = c1 * pow(funcC0, -1, p)
     #Define M
-    m = ((c2 % p) * pow(c1, -sk, p), sk, p) % p
+    m = pow(funcC1, 1, p)
     return m
